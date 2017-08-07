@@ -1,0 +1,58 @@
+debug: true
+
+# server config
+server:
+  port: 8080
+  context-path: /thirdjar
+
+# console config
+spring:
+  output:
+    ansi:
+      enabled: always
+
+  # http multipart config
+  http:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+
+# redis config
+#  redis:
+#    host: 123.56.228.177
+#    port: 6379
+
+# datasource
+multiple:
+  datasource:
+    primary:
+      url: jdbc:mysql://127.0.0.1:3306/hjzgg?characterEncoding=utf8&useSSL=false
+      username: root
+      password: 123456
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+
+# logging level
+logging:
+  level:
+    com:
+      hjzgg: debug
+
+# url management
+host:
+  baseUrl: http://xxxx
+  url:
+    test: ${host.baseUrl}/test
+
+# param check switch
+validate:
+  ifCheckFlag: true
